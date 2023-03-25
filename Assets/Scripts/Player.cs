@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
+
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs {
         public ClearCounter selectedCounter;
@@ -21,9 +22,9 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null) 
+        if (Instance != null)
         {
-            Debug.Log("there are more than 1 instance");
+            Debug.Log("There are more than 1 instance");
         }
 
         Instance = this;
