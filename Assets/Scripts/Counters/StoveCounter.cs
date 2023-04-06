@@ -83,7 +83,6 @@ public class StoveCounter : BaseCounter, IHasProgress  {
                 case State.Burned:
                     break;
             }
-            Debug.Log(state);
         }
     }
 
@@ -125,6 +124,23 @@ public class StoveCounter : BaseCounter, IHasProgress  {
                 });
             } else {
                 // player carrying something
+                if (player.GetKichenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject)) {
+                    // player is holding a Plate
+                    if (plateKitchenObject.TryAddIngredient(GetKichenObject().GetKitchenObjectSO())) {
+                        GetKichenObject().DestroySelf();
+
+                        state = State.Idle;
+
+                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs {
+                            state = state
+                        });
+
+                        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs {
+                            progressNormalized = 0f
+                        });
+                    }
+                }
+
             }
         }
     }

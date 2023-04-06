@@ -42,6 +42,12 @@ public class CuttingCounter : BaseCounter, IHasProgress {
                     });
             } else {
                 // player carrying something
+                if (player.GetKichenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject)) {
+                    // player is holding a Plate
+                    if (plateKitchenObject.TryAddIngredient(GetKichenObject().GetKitchenObjectSO())) {
+                        GetKichenObject().DestroySelf();
+                    }
+                }
             }
         }
     }
