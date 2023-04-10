@@ -585,10 +585,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1109.5999755859375,
-            "y": 283.20001220703127,
+            "x": -1047.2000732421875,
+            "y": 271.2000427246094,
             "width": 124.0,
-            "height": 172.79998779296876
+            "height": 172.79995727539063
         }
     },
     "m_Slots": [
@@ -973,10 +973,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1096.0,
-            "y": 534.4000244140625,
-            "width": 110.39996337890625,
-            "height": 33.5999755859375
+            "x": -1033.60009765625,
+            "y": 455.9999694824219,
+            "width": 110.4000244140625,
+            "height": 33.600006103515628
         }
     },
     "m_Slots": [
@@ -1023,10 +1023,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -640.0,
-            "y": 154.40000915527345,
-            "width": 208.0,
-            "height": 301.5999755859375
+            "x": -560.800048828125,
+            "y": 140.8000030517578,
+            "width": 128.80001831054688,
+            "height": 117.60002136230469
         }
     },
     "m_Slots": [
@@ -1046,7 +1046,7 @@
         "plus"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []
@@ -1203,10 +1203,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -927.199951171875,
-            "y": 383.1999816894531,
-            "width": 208.0,
-            "height": 301.6000061035156
+            "x": -848.0000610351563,
+            "y": 338.3999938964844,
+            "width": 128.79998779296876,
+            "height": 117.60000610351563
         }
     },
     "m_Slots": [
@@ -1226,7 +1226,7 @@
         "x"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []
