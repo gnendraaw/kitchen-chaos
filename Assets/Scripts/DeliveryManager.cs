@@ -8,6 +8,7 @@ public class DeliveryManager : MonoBehaviour {
     public event EventHandler OnRecipeCompleted;
     public event EventHandler OnRecipeSuccess;
     public event EventHandler OnRecipeFailed;
+
     public static DeliveryManager Instance { get; private set; }
 
     [SerializeField] private RecipeListSO recipeListSO;
@@ -16,6 +17,7 @@ public class DeliveryManager : MonoBehaviour {
     private float spawnRecipeTimer; 
     private float spawnRecipeTimerMax = 4f; 
     private int waitingRecipeMax = 4;
+    private int recipesDelivered = 0;
 
     private void Awake() {
         Instance = this;
@@ -64,6 +66,8 @@ public class DeliveryManager : MonoBehaviour {
 
                 if (plateContentsMatchesRecipe) {
                     // Player delivered the correct recipe!
+                    recipesDelivered++;
+
                     waitingRecipeSOList.RemoveAt(i);
                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
@@ -78,6 +82,10 @@ public class DeliveryManager : MonoBehaviour {
 
     public List<RecipeSO> GetRecipeSOList() {
         return waitingRecipeSOList;
+    }
+
+    public int GetRecipesDelivered() {
+        return recipesDelivered;
     }
 }
 
