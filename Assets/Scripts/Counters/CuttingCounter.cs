@@ -12,6 +12,10 @@ public class CuttingCounter : BaseCounter, IHasProgress {
 
     private int cuttingProgress;
 
+    new public static void ClearStaticData() {
+        OnAnyCut = null;
+    }
+
     public override void Interact(Player player) {
         if (!HasKitchenObject()) {
             // there is no KitchenObject here
