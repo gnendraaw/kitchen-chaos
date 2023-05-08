@@ -6,7 +6,7 @@ public class ClearStaticDataManager : MonoBehaviour {
     private void Awake() {
         CuttingCounter.ClearStaticData();
         BaseCounter.ClearStaticData();
-        StoveCounter.ClearStaticData();
+        TrashCounter.ClearStaticData();
     }
 }
 
