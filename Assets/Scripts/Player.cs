@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IKitchenObjectParent
+public class Player : NetworkBehaviour, IKitchenObjectParent
 {
     public static Player Instance { get; private set; }
 
@@ -25,18 +26,13 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void Awake()
     {
-        if (Instance != null)
-        {
-            Debug.Log("There are more than 1 instance");
-        }
-
         Instance = this;
     }
 
     private void Start()
     {
-        gameInput.OnInteractAction += GameInput_OnInteractAction;
-        gameInput.OnInteractAlternateAction += Gameinput_OnInteractAlternateAction;
+        GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;
+        GameInput.Instance.OnInteractAlternateAction += Gameinput_OnInteractAlternateAction;
     }
 
     private void Gameinput_OnInteractAlternateAction(object sender, System.EventArgs e) {
@@ -58,6 +54,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void Update()
     {
+        if (!IsOwner) {
+            return;
+        }
+
         HandleMovement();
         HandleInteractions();
     }
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandleInteractions()
     {
-        Vector2 inputVector = gameInput.GetMovementInputNormalized();
+        Vector2 inputVector = GameInput.Instance.GetMovementInputNormalized();
         Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y);
 
         if (moveDir != Vector3.zero)
@@ -101,7 +101,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandleMovement()
     {
-        Vector2 inputVector = gameInput.GetMovementInputNormalized();
+        Vector2 inputVector = GameInput.Instance.GetMovementInputNormalized();
         Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y);
 
         float playerRadius = .7f;
@@ -186,4 +186,4 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     {
         return kitchenObject != null;
     }
-}
+} //
