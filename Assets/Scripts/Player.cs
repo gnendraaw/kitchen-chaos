@@ -17,7 +17,6 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
     public event EventHandler OnPickedSomething;
 
     [SerializeField] private float moveSpeed = 7f;
-    // [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask countersLayerMask;
     [SerializeField] private Transform kitchenObjectHoldPoint;
 
