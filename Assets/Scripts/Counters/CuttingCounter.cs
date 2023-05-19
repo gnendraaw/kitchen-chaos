@@ -38,19 +38,29 @@ public class CuttingCounter : BaseCounter, IHasProgress {
                 // player not have anything
                 GetKichenObject().SetkitchenObjectParent(player);
 
-                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs {
-                        progressNormalized = 0f
-                    });
+                ResetCuttingProgressServerRpc();
             } else {
                 // player carrying something
                 if (player.GetKichenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject)) {
                     // player is holding a Plate
                     if (plateKitchenObject.TryAddIngredient(GetKichenObject().GetKitchenObjectSO())) {
-                        GetKichenObject().DestroySelf();
+                        KitchenObject.DestroyKitchenObject(GetKichenObject());
                     }
                 }
             }
         }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void ResetCuttingProgressServerRpc() {
+        ResetCuttingProgressClientRpc();
+    }
+
+    [ClientRpc]
+    private void ResetCuttingProgressClientRpc() {
+        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs {
+            progressNormalized = 0f
+        });
     }
 
     [ServerRpc(RequireOwnership = false)]
