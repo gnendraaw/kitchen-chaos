@@ -154,7 +154,7 @@ public class KitchenGameManager : NetworkBehaviour {
 
     private void TestGamePausedState() {
         foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds) {
-            if (playerPausedDictionary[clientId] == true && playerPausedDictionary[clientId]) {
+            if (playerPausedDictionary.ContainsKey(clientId) && playerPausedDictionary[clientId]) {
                 // This player is paused
                 isGamePaused.Value = true;
                 return;
