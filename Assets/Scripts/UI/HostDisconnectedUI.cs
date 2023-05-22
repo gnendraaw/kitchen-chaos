@@ -1,35 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public class GameOverUI : MonoBehaviour {
-    [SerializeField] private TextMeshProUGUI recipesDeliveredText;
+public class HostDisconnectedUI : MonoBehaviour {
     [SerializeField] private Button playAgainButton;
 
     private void Awake() {
         playAgainButton.onClick.AddListener(() => {
-            NetworkManager.Singleton.Shutdown(); 
+            NetworkManager.Singleton.Shutdown();
 
             Loader.Load(Loader.Scene.MainMenuScene);
         });
     }
 
     private void Start() {
-        KitchenGameManager.Instance.OnStateChanged += KitchenGameManager_OnStateChanged;
-
+        NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_OnClientDisconnectCallback;
+        
         Hide();
     }
 
-    private void KitchenGameManager_OnStateChanged(object sender, System.EventArgs e) {
-        if (KitchenGameManager.Instance.IsGameOver()) {
+    private void NetworkManager_OnClientDisconnectCallback(ulong clientId) {
+        if (clientId == NetworkManager.ServerClientId) {
             Show();
-
-            recipesDeliveredText.text = DeliveryManager.Instance.GetRecipesDelivered().ToString();
-        } else {
-            Hide();
         }
     }
 
