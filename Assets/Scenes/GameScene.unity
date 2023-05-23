@@ -3272,7 +3272,7 @@ RectTransform:
   - {fileID: 1060370444}
   - {fileID: 2109290614}
   m_Father: {fileID: 2027377198}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6355,7 +6355,7 @@ RectTransform:
   - {fileID: 742353614}
   - {fileID: 2066356967}
   m_Father: {fileID: 2027377198}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9052,7 +9052,7 @@ MonoBehaviour:
       OverridingTargetPrefab: {fileID: 0}
     TickRate: 30
     ClientConnectionBufferTimeout: 10
-    ConnectionApproval: 0
+    ConnectionApproval: 1
     ConnectionData: 
     EnableTimeResync: 0
     TimeResyncInterval: 30
@@ -9574,7 +9574,7 @@ RectTransform:
   - {fileID: 627621059}
   - {fileID: 1294886748}
   m_Father: {fileID: 2027377198}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -12626,7 +12626,7 @@ RectTransform:
   - {fileID: 1871577030}
   - {fileID: 1832387497}
   m_Father: {fileID: 2027377198}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -13737,7 +13737,7 @@ RectTransform:
   - {fileID: 1630210597}
   - {fileID: 1023881954}
   m_Father: {fileID: 2027377198}
-  m_RootOrder: 5
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -14086,11 +14086,11 @@ RectTransform:
   - {fileID: 54014644}
   - {fileID: 782732922}
   - {fileID: 123066532}
-  - {fileID: 1999697922}
   - {fileID: 985935691}
   - {fileID: 1874589242}
   - {fileID: 1423946242}
   - {fileID: 508021387}
+  - {fileID: 1999697922}
   - {fileID: 233191440}
   m_Father: {fileID: 0}
   m_RootOrder: 6

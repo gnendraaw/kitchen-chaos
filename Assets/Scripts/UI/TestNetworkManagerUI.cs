@@ -10,12 +10,14 @@ public class TestNetworkManagerUI : MonoBehaviour {
 
     private void Awake() {
         startHostButton.onClick.AddListener(() => {
-            NetworkManager.Singleton.StartHost();
+            KitchenGameMultiplayer.Instance.StartHost();
+
             gameObject.SetActive(false);
         });
 
         startClientButton.onClick.AddListener(() => {
-            NetworkManager.Singleton.StartClient();
+            KitchenGameMultiplayer.Instance.StartClient();
+
             gameObject.SetActive(false);
         });
     }
