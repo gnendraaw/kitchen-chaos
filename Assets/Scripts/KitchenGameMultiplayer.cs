@@ -259,4 +259,3 @@ public class KitchenGameMultiplayer : NetworkBehaviour {
         NetworkManager_Server_OnClientDisconnectedCallback(clientId);
     }
 }
-
