@@ -12,6 +12,8 @@ public class KitchenGameMultiplayer : NetworkBehaviour {
     
     public static KitchenGameMultiplayer Instance { get; private set; }
 
+    public static bool playMultiplayer;
+
     public event EventHandler OnTryingToJoinGame;
     public event EventHandler OnFailedToJoinGame;
     public event EventHandler OnPlayerNetworkListChanged;
@@ -31,6 +33,14 @@ public class KitchenGameMultiplayer : NetworkBehaviour {
 
         playerDataNetworkList = new NetworkList<PlayerData>();
         playerDataNetworkList.OnListChanged += playerDataNetworkList_OnListChanged;
+    }
+
+    private void Start() {
+        if (!playMultiplayer) {
+            // Playing singleplayer mode
+            StartHost();
+            Loader.LoadNetwork(Loader.Scene.GameScene);
+        }
     }
 
     public string GetPlayerName() {
